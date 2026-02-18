@@ -1,4 +1,4 @@
-# 📊 Formulas: Data Science Jobs Analytics (Excel)
+# 📊 Excel Formulas: Data Science Jobs Analytics
 
 This document outlines the advanced Excel formulas used to analyze the data science job market. These formulas leverage dynamic arrays and nested conditional logic to provide insights into salary benchmarks, remote work trends, and platform distribution.
 
