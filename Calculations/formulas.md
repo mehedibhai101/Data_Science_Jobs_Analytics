@@ -7,23 +7,23 @@ This document outlines the advanced Excel formulas used to analyze the data scie
 These formulas dynamically extract job roles and calculate specific financial benchmarks for each title.
 
 * Job Titles: Generates a unique, de-duplicated list of all job titles present in the dataset.
- * Formula: `=UNIQUE(job[job_title_short])`
+  * Formula: `=UNIQUE(job[job_title_short])`
 
 * Median Salary: Calculates the middle salary value for a specific role and country, excluding missing data (0 values).
- * Formula: =MEDIAN(IF((job[job_title_short]=A2)*(job[Country]=country)*(job[salary_year_avg]<>0), job[salary_year_avg]))
+  * Formula: =MEDIAN(IF((job[job_title_short]=A2)*(job[Country]=country)*(job[salary_year_avg]<>0), job[salary_year_avg]))
 
 * Job Count: Counts the number of active postings for a specific role that include valid salary information.
- * Formula: =COUNTIFS(job[job_title_short], A2, job[Country], country, job[salary_year_avg], "<>0")
+  * Formula: =COUNTIFS(job[job_title_short], A2, job[Country], country, job[salary_year_avg], "<>0")
 
 ### 🌍 Geographical & Temporal Trends
 
 Logic used to pivot the data by country and time (month) to identify where and when the market is most active.
 
 * Countries: Extracts and alphabetically sorts all unique countries represented in the data.
- * Formula: =SORT(UNIQUE(job[Country]))
+  * Formula: =SORT(UNIQUE(job[Country]))
 
 * Monthly Job Count: Tracks hiring volume trends across the calendar year.
- * Formula: =COUNTIFS(job[posted_month], A2, job[job_title_short], title, job[Country], country, job[salary_year_avg], "<>0")
+  * Formula: =COUNTIFS(job[posted_month], A2, job[job_title_short], title, job[Country], country, job[salary_year_avg], "<>0")
 
 ### 🏠 Work Environment & Requirements
 
@@ -52,10 +52,10 @@ These sections use boolean logic to determine the prevalence of remote work and 
 Cleaning and aggregating data from various job boards and aggregators.
 
 * Platforms: A sorted list of every unique source where jobs were posted.
- * Formula: =SORT(UNIQUE(job[job_via]))
+  * Formula: =SORT(UNIQUE(job[job_via]))
 
 * Top Platform (Cleaned): Removes the "via " prefix from platform names for cleaner data visualization.
- * Formula: =SUBSTITUTE(A2, "via ", "")
+  * Formula: =SUBSTITUTE(A2, "via ", "")
 
 ## 🧠 Explanation of Complex Logics
 
