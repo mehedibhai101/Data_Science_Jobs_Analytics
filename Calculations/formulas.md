@@ -2,7 +2,7 @@
 
 This document outlines the advanced Excel formulas used to analyze the data science job market. These formulas leverage dynamic arrays and nested conditional logic to provide insights into salary benchmarks, remote work trends, and platform distribution.
 
-### 💼 Role-Based Analysis
+## 💼 Role-Based Analysis
 
 These formulas dynamically extract job roles and calculate specific financial benchmarks for each title.
 
@@ -15,7 +15,8 @@ These formulas dynamically extract job roles and calculate specific financial be
 * Job Count: Counts the number of active postings for a specific role that include valid salary information.
   * Formula: =COUNTIFS(job[job_title_short], A2, job[Country], country, job[salary_year_avg], "<>0")
 
-### 🌍 Geographical & Temporal Trends
+
+## 🌍 Geographical & Temporal Trends
 
 Logic used to pivot the data by country and time (month) to identify where and when the market is most active.
 
@@ -25,7 +26,8 @@ Logic used to pivot the data by country and time (month) to identify where and w
 * Monthly Job Count: Tracks hiring volume trends across the calendar year.
   * Formula: =COUNTIFS(job[posted_month], A2, job[job_title_short], title, job[Country], country, job[salary_year_avg], "<>0")
 
-### 🏠 Work Environment & Requirements
+
+## 🏠 Work Environment & Requirements
 
 These sections use boolean logic to determine the prevalence of remote work and educational expectations.
 
@@ -47,7 +49,8 @@ These sections use boolean logic to determine the prevalence of remote work and 
 | Total | =SUM(B1:B2) |
 | % Share | =B1/$B$3 |
 
-### 🚀 Platform & Sourcing
+
+## 🚀 Platform & Sourcing
 
 Cleaning and aggregating data from various job boards and aggregators.
 
@@ -56,6 +59,7 @@ Cleaning and aggregating data from various job boards and aggregators.
 
 * Top Platform (Cleaned): Removes the "via " prefix from platform names for cleaner data visualization.
   * Formula: =SUBSTITUTE(A2, "via ", "")
+
 
 ## 🧠 Explanation of Complex Logics
 
