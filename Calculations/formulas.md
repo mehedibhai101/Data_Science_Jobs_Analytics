@@ -30,6 +30,7 @@ Logic used to pivot the data by country and time (month) to identify where and w
 These sections use boolean logic to determine the prevalence of remote work and educational expectations.
 
 * **Job Type (Remote vs. On-site):**
+
 | Type | Formula |
 |---|---|
 | Remote | =COUNTIFS(job[job_work_from_home], TRUE, job[job_title_short], title, job[Country], country, job[salary_year_avg], "<>0") |
@@ -38,10 +39,13 @@ These sections use boolean logic to determine the prevalence of remote work and 
 | % Share | =B1/$B$3 |
 
 * **Degree Mentioned:**
+
 | Status | Formula |
 |---|---|
 | Mentioned | =COUNTIFS(job[Remote Job], FALSE, job[job_title_short], title, job[Country], country, job[salary_year_avg], "<>0") |
 | Not Mentioned | =COUNTIFS(job[Remote Job], TRUE, job[job_title_short], title, job[Country], country, job[salary_year_avg], "<>0") |
+| Total | =SUM(B1:B2) |
+| % Share | =B1/$B$3 |
 
 ### 🚀 Platform & Sourcing
 
