@@ -10,10 +10,25 @@ These formulas dynamically extract job roles and calculate specific financial be
   * **Formula:** `=UNIQUE(job[job_title_short])`
 
 * **Median Salary:** Calculates the middle salary value for a specific role and country, excluding missing data (0 values).
-  * **Formula:** `=MEDIAN(IF((job[job_title_short]=A2)*(job[Country]=country)*(job[salary_year_avg]<>0), job[salary_year_avg]))`
+  * **Formula:** 
+  ```excel
+  =MEDIAN(
+      IF(
+          (job[job_title_short]=A2) * (job[Country]=country) * (job[salary_year_avg]<>0), 
+          job[salary_year_avg]
+      )
+  )
+  ```
 
 * **Job Count:** Counts the number of active postings for a specific role that include valid salary information.
-  * **Formula:** `=COUNTIFS(job[job_title_short], A2, job[Country], country, job[salary_year_avg], "<>0")`
+  * **Formula:**
+  ```excel
+  =COUNTIFS(
+      job[job_title_short], A2,
+      job[Country], country, 
+      job[salary_year_avg], "<>0"
+  )
+  ```
 
 
 ## 🌍 Geographical & Temporal Trends
@@ -24,7 +39,15 @@ Logic used to pivot the data by country and time (month) to identify where and w
   * **Formula:** `=SORT(UNIQUE(job[Country]))`
 
 * **Monthly Job Count:** Tracks hiring volume trends across the calendar year.
-  * **Formula:** `=COUNTIFS(job[posted_month], A2, job[job_title_short], title, job[Country], country, job[salary_year_avg], "<>0")`
+  * **Formula:** 
+  ```excel
+  =COUNTIFS(
+      job[posted_month], A2,
+      job[job_title_short], title,
+      job[Country], country,
+      job[salary_year_avg], "<>0"
+  )
+  ```
 
 
 ## 🏠 Work Environment & Requirements
@@ -59,6 +82,14 @@ Cleaning and aggregating data from various job boards and aggregators.
 
 * **Job Count:** Counts the number of active postings for a specific platform that include valid salary information.
   * **Formula:** `=COUNTIFS(job[job_via],A4,job[job_title_short],title,job[Country],country,job[salary_year_avg],"<>0")`
+  ```excel
+  =COUNTIFS(
+      job[job_via], A4,
+      job[job_title_short], title,
+      job[Country], country,
+      job[salary_year_avg],"<>0"
+  )
+  ```
 
 * **Platforms (Sorted):** Sorted list of the platforms according to job posting count.
   * **Formula:** `=SORT(A2:B594,2,-1)`
